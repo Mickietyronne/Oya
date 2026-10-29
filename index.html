@@ -50,6 +50,15 @@ article:hover .oya-spinhover{transform:rotate(-12deg) scale(1.12)}
 .oya-tilehover{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
 .oya-tilehover:hover{transform:rotate(0deg) scale(1.08) !important}
 .oya-ticker:hover{animation-play-state:paused}
+.oya-nltile{transition:opacity .4s, transform .4s, box-shadow .4s, filter .15s}
+.oya-nltile:hover{filter:brightness(1.07)}
+.oya-nltile .nl-true,.oya-nltile .nl-stamp{display:none}
+.oya-nltile.is-truth{opacity:.6;transform:scale(.98)}
+.oya-nltile.is-truth .nl-true{display:inline-block}
+.oya-nltile.is-lie{box-shadow:0 0 0 4px #fff, 0 10px 26px rgba(0,0,0,.35) !important;transform:scale(1.02)}
+.oya-nltile.is-lie .nl-stamp{display:block;animation:oyaStamp .45s .25s cubic-bezier(.3,1.6,.5,1) both}
+.oya-nltile.picked::after{content:"Your pick";position:absolute;left:18px;top:-10px;background:#FFC83D;color:#1B1340;font-size:12px;font-weight:800;border-radius:999px;padding:2px 10px}
+@keyframes oyaStamp{from{opacity:0;transform:translateY(-55%) rotate(-8deg) scale(2.2)}to{opacity:1;transform:translateY(-55%) rotate(-8deg) scale(1)}}
 @keyframes oyaBand{to{background-position:51px 0}}
 @keyframes oyaFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(14deg)}}
 @keyframes oyaTicker{to{transform:translateX(-50%)}}
@@ -93,7 +102,7 @@ article:hover .oya-spinhover{transform:rotate(-12deg) scale(1.12)}
 <div style="max-width: 1240px; margin: 0 auto; padding: 20px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="#top" aria-label="Oya! Quiz home" class="oya-logo" style="font-size: 32px; font-weight: 800; letter-spacing: -.04em; color: #FFC83D; text-decoration: none">Oya<span style="display: inline-block; color: #FFF9EC">!</span></a>
 <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px">
-<a class="oya-nav" href="#how">How it works</a><a class="oya-nav" href="#features">Features</a><a class="oya-nav" href="#who">Who it's for</a><a class="oya-nav" href="#faq">FAQ</a>
+<a class="oya-nav" href="#how">How it works</a><a class="oya-nav" href="#features">Features</a><a class="oya-nav" href="#who">Who it's for</a><a class="oya-nav" href="na-lie.html">Na Lie!</a><a class="oya-nav" href="#faq">FAQ</a>
 <a class="oya-btn" href="play.html?host" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #FFC83D; color: #1B1340; font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 4px 0 #C9931A">Host a quiz</a>
 </nav></div></header>
 <section aria-labelledby="hero-title" data-on-mousemove="{{onHeroMove}}" data-on-mouseleave="{{onHeroLeave}}" style="position: relative; overflow: hidden; background: #1B1340">
@@ -322,7 +331,7 @@ article:hover .oya-spinhover{transform:rotate(-12deg) scale(1.12)}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { picked: null, pts: 0, joined: 8, flip: false, avSet: 0, podIn: true, docIn: true, phIn: true,
+    this.state = { nlPicked: null, picked: null, pts: 0, joined: 8, flip: false, avSet: 0, podIn: true, docIn: true, phIn: true,
       seen: {}, ready: false, tiltX: 0, tiltY: 0, phX: 0, phY: 0, ctaX: 0, ctaY: 0, beat: false, faq: { 0: true },
       rise: [false, false, false, false], countdown: 3, progress: 0 };
     this.timers = [];
@@ -446,9 +455,15 @@ class Component extends DCLogic {
       rise0: st.rise[0], rise1: st.rise[1], rise2: st.rise[2], rise3: st.rise[3],
       hype0: () => this.hype(0), hype1: () => this.hype(1), hype2: () => this.hype(2), hype3: () => this.hype(3),
       countdown: st.countdown,
+      nlPick0: () => this.setState({ nlPicked: 0 }), nlPick1: () => this.setState({ nlPicked: 1 }), nlPick2: () => this.setState({ nlPicked: 2 }),
+      nlReset: () => this.setState({ nlPicked: null }), nlDone: st.nlPicked !== null,
+      nlc0: st.nlPicked === null ? '' : 'is-truth' + (st.nlPicked === 0 ? ' picked' : ''),
+      nlc1: st.nlPicked === null ? '' : 'is-lie' + (st.nlPicked === 1 ? ' picked' : ''),
+      nlc2: st.nlPicked === null ? '' : 'is-truth' + (st.nlPicked === 2 ? ' picked' : ''),
+      nlMsg: st.nlPicked === null ? 'Tap the one you think is the lie.' : st.nlPicked === 1 ? 'You spotted it! Tolu has not been to 12 countries.' : 'Fooled you! That one is true. The lie was the 12 countries.',
       podIn: this.cls('sPod'), docIn: this.cls('sDoc'), phIn: this.cls('sPh')
     };
-    ['sHowHead','sHow','sFeatHead','sFeat','sChips','sPhHead','sWhoHead','sWho','sFaq','sCta'].forEach(k => v[k] = this.cls(k));
+    ['sHowHead','sHow','sFeatHead','sFeat','sChips','sNl','sPhHead','sWhoHead','sWho','sFaq','sCta'].forEach(k => v[k] = this.cls(k));
     for (let i = 0; i < 8; i++) v['c' + i] = i < j ? '' : 'out';
     for (let i = 0; i < 5; i++) v['faq' + i] = faqv(i);
     return v;
