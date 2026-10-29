@@ -82,6 +82,74 @@ button{cursor:pointer}
 .ham{width:44px;height:44px;border:0;border-radius:12px;background:var(--paper);place-items:center;color:var(--ink);flex:none}
 .ham svg,.drawer-x svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
 .side-tools button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* ===== Na Lie! ===== */
+.btn.nl{background:#E64980;color:#fff;box-shadow:0 4px 0 #A61E57}
+.nl-tiles{display:flex;flex-direction:column;gap:.8rem;padding:0 clamp(1rem,4vw,4rem) 4.5rem;position:relative;z-index:1}
+.nltile{position:relative;display:flex;align-items:center;gap:1rem;background:var(--c);color:#fff;border-radius:var(--r);padding:1rem 1.4rem;min-height:clamp(78px,11vh,112px);font-weight:800;font-size:clamp(1.15rem,2.4vw,1.9rem);line-height:1.2;box-shadow:0 6px 0 rgba(0,0,0,.25);animation:pop .4s cubic-bezier(.3,1.5,.5,1) both;transition:opacity .4s, transform .4s, box-shadow .4s}
+.nltile:nth-child(2){animation-delay:.08s}.nltile:nth-child(3){animation-delay:.16s}
+.nltile .t{flex:1}
+.nltile .votes{display:flex;align-items:center;gap:.6rem;flex:none}
+.nltile .votes b{font-size:1.5em;min-width:1.4em;text-align:right;font-variant-numeric:tabular-nums}
+.nltile .pile{margin:0;max-width:220px;justify-content:flex-end}
+.nltile .pile .avw{--s:32px;box-shadow:0 0 0 3px var(--c)}
+.nltile .stamp{position:absolute;right:clamp(8rem,26vw,26rem);top:0;transform:translateY(-55%) rotate(-8deg) scale(2.2);opacity:0;border:5px solid #fff;color:#fff;background:var(--bad);border-radius:12px;padding:.1em .5em;font-size:clamp(1.6rem,3.4vw,2.8rem);letter-spacing:.02em;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.nltile .okmark{display:none;flex:none;font-size:.85em;background:rgba(0,0,0,.2);border-radius:999px;padding:.2em .8em}
+.nl-tiles.revealed .nltile.truth{opacity:.55;transform:scale(.98)}
+.nl-tiles.revealed .nltile.truth .okmark{display:inline-block}
+.nl-tiles.revealed .nltile.lie{box-shadow:0 0 0 5px #fff,0 10px 30px rgba(0,0,0,.35);transform:scale(1.02)}
+.nl-tiles.revealed .nltile.lie .stamp{animation:stamp .45s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes stamp{to{opacity:1;transform:translateY(-55%) rotate(-8deg) scale(1)}}
+.nv-who{display:flex;align-items:center;justify-content:center;gap:1rem;padding:0 1rem;position:relative;z-index:1}
+.nv-who .avw{--s:clamp(64px,8vw,96px);box-shadow:0 0 0 5px var(--plum2)}
+.ni-av .avw{--s:clamp(140px,18vw,220px);margin:0 auto;box-shadow:0 0 0 8px var(--plum2);animation:zoom .6s cubic-bezier(.3,1.5,.5,1) both}
+.nlf{display:flex;flex-direction:column;gap:.35rem;font-weight:800;width:100%;font-size:1rem}
+.nlf input{border:0;border-radius:14px;padding:.9rem 1rem;font-size:1.1rem;font-weight:600;background:#fff;color:var(--ink);width:100%}
+.nlf.lie span{color:#FF9EA1}
+.nlf.lie input{box-shadow:inset 0 0 0 3px #E64980}
+.nl-form{width:min(420px,100%);display:flex;flex-direction:column;gap:.9rem;margin:0 auto}
+.nl-form h2{text-align:center}
+.nl-tip{text-align:center;font-size:.92rem !important;margin:0 auto !important}
+.nlv-list{display:flex;flex-direction:column;gap:.7rem;flex:1;margin-top:.4rem}
+.nlbtn{border:0;border-radius:var(--r);background:var(--c);color:#fff;display:flex;align-items:center;gap:.8rem;text-align:left;padding:1rem;font-weight:800;font-size:1.08rem;line-height:1.25;min-height:84px;box-shadow:0 6px 0 rgba(0,0,0,.25);animation:pop .35s cubic-bezier(.3,1.5,.5,1) both}
+.nlbtn .shape{width:2rem;height:2rem}
+.nlbtn:active{transform:translateY(4px);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.nlv-head{display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem}
+.nlv-head .avw{--s:46px}
+.nlv-head b{font-size:1.15rem;line-height:1.2}
+/* new leaderboard */
+.nlb-title{margin:0;text-align:center;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:-.03em;line-height:1;position:relative;z-index:1}
+.nlb-call{margin:.9rem auto 0;width:max-content;max-width:92%;display:flex;align-items:center;gap:.7rem;background:rgba(255,200,61,.12);border:2px solid rgba(255,200,61,.35);color:var(--sun);border-radius:999px;padding:.4rem 1.3rem .4rem .45rem;font-weight:800;font-size:clamp(1.1rem,2.2vw,1.6rem);position:relative;z-index:1;animation:zoom .5s 1.4s cubic-bezier(.3,1.4,.5,1) both}
+.nlb-call .avw{--s:40px}
+.nlb-rows{width:min(1040px,92%);margin:1.4rem auto 0;display:flex;flex-direction:column;gap:.75rem;position:relative;z-index:1}
+.nlb-row{position:relative;display:flex;align-items:center;gap:clamp(.6rem,1.4vw,1.2rem);background:var(--plum2);border-radius:22px;padding:.75rem clamp(.9rem,2vw,1.6rem) .75rem .9rem;min-height:clamp(64px,9vh,92px)}
+.nlb-row .rk{width:clamp(38px,3.4vw,50px);height:clamp(38px,3.4vw,50px);border-radius:14px;display:grid;place-items:center;font-size:clamp(1.2rem,2vw,1.7rem);font-weight:800;background:rgba(255,255,255,.08);flex:none;font-variant-numeric:tabular-nums}
+.nlb-row .av{position:relative;flex:none}
+.nlb-row .av .avw{--s:clamp(46px,4.4vw,62px)}
+.nlb-row .nm{font-size:clamp(1.25rem,2.4vw,2rem);font-weight:800;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.nlb-row .chips{display:flex;gap:.45rem;flex-wrap:wrap}
+.nlb-chip{border-radius:999px;padding:.25em .7em;font-weight:800;font-size:clamp(.85rem,1.2vw,1.05rem);white-space:nowrap;animation:pop .4s 1.5s cubic-bezier(.3,1.6,.5,1) both}
+.nlb-chip.up{background:rgba(61,220,151,.16);color:#3DDC97}
+.nlb-chip.down{background:rgba(255,122,128,.16);color:#FF7A80}
+.nlb-chip.fire{background:rgba(247,103,7,.18);color:#FFA05C}
+.nlb-chip.fool{background:rgba(255,255,255,.1);color:var(--text)}
+.nlb-row .sp{flex:1}
+.nlb-row .gain{font-size:clamp(1rem,1.6vw,1.3rem);font-weight:700;color:var(--sun);white-space:nowrap}
+.nlb-row .sc{font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:800;font-variant-numeric:tabular-nums;min-width:4.5ch;text-align:right}
+.nlb-row.lead{background:var(--sun);color:var(--plum);min-height:clamp(76px,11vh,112px);box-shadow:0 0 0 4px rgba(255,200,61,.25),0 18px 50px rgba(255,200,61,.22)}
+.nlb-row.lead .rk{background:var(--plum);color:var(--sun)}
+.nlb-row.lead .av .avw{--s:clamp(56px,5.4vw,78px);box-shadow:0 0 0 4px var(--plum)}
+.nlb-row.lead .nm{font-size:clamp(1.45rem,2.8vw,2.5rem)}
+.nlb-row.lead .sc{font-size:clamp(1.8rem,3.2vw,2.9rem)}
+.nlb-row.lead .gain{color:var(--plum)}
+.nlb-row.lead .nlb-chip.up,.nlb-row.lead .nlb-chip.down,.nlb-row.lead .nlb-chip.fire{background:var(--plum)}
+.nlb-row.lead .nlb-chip.fool{background:var(--plum);color:var(--sun)}
+.nlb-crown{position:absolute;right:-6px;bottom:-5px;width:30px;height:30px;border-radius:50%;background:var(--plum);display:grid;place-items:center;box-shadow:0 0 0 3px var(--sun)}
+.nlb-crown svg{width:18px;height:18px;fill:var(--sun)}
+.nlb-more{width:min(1040px,92%);margin:.9rem auto 4.5rem;display:flex;align-items:center;gap:.8rem;color:var(--soft);font-size:clamp(1rem,1.6vw,1.3rem);font-weight:600;position:relative;z-index:1}
+.nlb-more .stack{display:flex;padding-left:10px}
+.nlb-more .stack .avw{--s:36px;margin-left:-10px;box-shadow:0 0 0 3px var(--plum)}
+.player .nlr-big{font-size:5rem;font-weight:800;line-height:1;color:var(--sun);margin:.2rem 0;max-width:none}
+.nlr-pill{border-radius:999px;padding:.35em 1em;font-weight:800;font-size:.95rem;margin-top:.4rem}
 .host-box{width:min(480px,100%);gap:1rem;text-align:center;align-items:center;padding:2rem 1.6rem}
 .host-box h3{font-size:1.8rem;letter-spacing:-.02em}
 .host-box p{max-width:36ch}
@@ -434,6 +502,7 @@ button{cursor:pointer}
     <div class="row">
       <button class="btn" id="goHost">Host a quiz</button>
       <button class="btn ghost" id="goJoin">Join a game</button>
+      <button class="btn nl" id="goNaLie">Play Na Lie!</button>
     </div>
     <a class="link" id="siteLink" href="./" style="align-self:flex-start;margin-top:1.6rem;color:var(--soft)">What is Oya? See how it works</a>
   </main>
@@ -447,6 +516,7 @@ button{cursor:pointer}
     <div class="spacer"></div>
     <div class="ed-tools">
       <button class="btn line small" id="aiBtn">Make with AI</button>
+      <button class="btn line small" id="nlBtn">Play Na Lie!</button>
       <button class="btn line small" id="impBtn">Import</button>
       <button class="btn line small" id="expBtn">Export</button>
     </div>
@@ -461,6 +531,7 @@ button{cursor:pointer}
         <button type="button" data-proxy="aiBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>Make with AI</button>
         <button type="button" data-proxy="impBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Import</button>
         <button type="button" data-proxy="expBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5M5 20h14"/></svg>Export</button>
+        <button type="button" data-proxy="nlBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M9 9l6 4M15 9l-6 4"/></svg>Play Na Lie!</button>
       </div>
       <h2>Your quizzes</h2>
       <div id="quizList"></div>
@@ -609,6 +680,57 @@ button{cursor:pointer}
   <div class="chips" id="skCards" style="justify-content:center;padding:1rem 2rem 2rem;position:relative;z-index:1"></div>
 </section>
 
+<section class="screen host" id="hNlWrite" hidden>
+  <div class="band"></div>
+  <div class="floaters" data-floaters></div>
+  <header class="h-top"><span>Na Lie!</span><span>Writing time</span><span><button class="btn small" id="nwStart" disabled>Start the rounds</button></span></header>
+  <div class="stake-hero">
+    <p class="stake-kicker">Step 1</p>
+    <h2 class="qtext" style="margin-bottom:.4rem">Write two truths and a lie</h2>
+    <p class="status" style="font-size:1.25rem;max-width:44ch">On your phone, type two true things about yourself and one believable lie. Keep it fun!</p>
+    <div class="stake-timer"><b id="nwTime">90</b><span>seconds left · <strong id="nwCount">0</strong> ready</span></div>
+  </div>
+  <div class="chips" id="nwCards" style="justify-content:center;padding:1rem 2rem 2rem;position:relative;z-index:1"></div>
+</section>
+
+<section class="screen host" id="hNlIntro" hidden>
+  <div class="band"></div>
+  <div class="intro">
+    <p class="num" id="niNum"></p>
+    <div class="ni-av" id="niAv"></div>
+    <h2 class="qtext" id="niName" style="margin:.4rem auto 0"></h2>
+    <p class="status" style="margin:0;font-size:1.3rem">is in the hot seat</p>
+  </div>
+</section>
+
+<section class="screen host" id="hNlVote" hidden>
+  <div class="band"></div>
+  <header class="h-top"><span id="nvNum"></span><span>Which one is the lie?</span><span style="display:flex;gap:1.2rem;justify-content:flex-end"><button class="link" id="nvSkip">Skip this player</button><button class="link" id="nvEnd">End timer</button></span></header>
+  <div class="nv-who"><span class="avw" id="nvAv"></span><h2 class="qtext" id="nvTitle" style="margin:0;text-align:left"></h2></div>
+  <div class="qmid" style="min-height:130px">
+    <div class="ring" id="nvRing"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-bg" cx="50" cy="50" r="45"/><circle class="ring-fg" id="nvRingFg" cx="50" cy="50" r="45"/></svg><span id="nvTime">20</span></div>
+    <div class="acount"><strong id="nvCount">0</strong><span>of <span id="nvTotal">0</span> voted</span><div class="pile" id="nvPile"></div></div>
+  </div>
+  <div class="nl-tiles" id="nvTiles"></div>
+</section>
+
+<section class="screen host" id="hNlReveal" hidden>
+  <div class="band"></div>
+  <header class="h-top"><span id="nrNum"></span><span id="nrWho"></span><span><button class="btn small" id="nrNext">Leaderboard</button></span></header>
+  <p class="callout" id="nrCall"></p>
+  <div class="nl-tiles" id="nrTiles"></div>
+</section>
+
+<section class="screen host" id="hNlBoard" hidden>
+  <div class="band"></div>
+  <div class="floaters" data-floaters></div>
+  <header class="h-top"><span id="nbMeta" style="font-family:'DM Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;font-size:.95rem"></span><span></span><span style="display:flex;gap:1.2rem;justify-content:flex-end;align-items:center"><button class="link" id="nbEnd">End game</button><button class="btn small" id="nbNext">Next round</button></span></header>
+  <h2 class="nlb-title">Leaderboard</h2>
+  <div class="nlb-call" id="nbCall"></div>
+  <div class="nlb-rows" id="nbRows" aria-live="polite"></div>
+  <div class="nlb-more" id="nbMore"></div>
+</section>
+
 <section class="screen host" id="hBoard" hidden>
   <div class="band"></div>
   <header class="h-top"><span id="bdNum"></span><span>Scoreboard</span><span></span></header>
@@ -692,6 +814,40 @@ button{cursor:pointer}
   <div class="stakes" id="psGrid"></div>
 </section>
 
+<section class="screen player" id="pNlWrite" hidden>
+  <div class="ptimer"><i id="nwBar"></i></div>
+  <div class="nl-form">
+    <h2>Two truths and a lie</h2>
+    <p style="text-align:center;margin:0 auto">Write two true things about yourself and one lie. Make the lie believable!</p>
+    <label class="nlf"><span>Truth 1</span><input id="nwT1" maxlength="80" autocomplete="off" placeholder="Something true about you"></label>
+    <label class="nlf"><span>Truth 2</span><input id="nwT2" maxlength="80" autocomplete="off" placeholder="Another true thing"></label>
+    <label class="nlf lie"><span>Your lie</span><input id="nwL" maxlength="80" autocomplete="off" placeholder="Something believable, but false"></label>
+    <p class="err" id="nwErr" role="alert" hidden></p>
+    <button class="btn wide" id="nwGo" type="button">Lock it in</button>
+    <p class="nl-tip">Keep it fun. Nothing too personal.</p>
+  </div>
+</section>
+
+<section class="screen player center" id="pNlHot" hidden>
+  <div class="wait-av"><span class="avw" id="nhAv"></span></div>
+  <h2>You're in the hot seat!</h2>
+  <p>Everyone is guessing which one is your lie. Keep a straight face!</p>
+</section>
+
+<section class="screen player" id="pNlVote" hidden>
+  <div class="ptimer"><i id="nvBar"></i></div>
+  <div class="nlv-head"><span class="avw" id="nvpAv"></span><b id="nvpTitle"></b></div>
+  <div class="nlv-list" id="nvpList"></div>
+</section>
+
+<section class="screen player center" id="pNlRank" hidden>
+  <div class="wait-av"><span class="avw" id="nrkAv"></span></div>
+  <p style="font-family:'DM Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;margin:0">Your rank</p>
+  <p class="nlr-big" id="nrkBig"></p>
+  <p id="nrkText"></p>
+  <span class="nlr-pill" id="nrkPill"></span>
+</section>
+
 <section class="screen player center" id="pLocked" hidden>
   <div class="plshape" id="plShape"></div>
   <h2>Locked in</h2>
@@ -723,6 +879,20 @@ button{cursor:pointer}
   <button class="btn" id="pmBtn"></button>
 </section>
 
+<div class="modal" id="nlModal" hidden role="dialog" aria-modal="true" aria-labelledby="nlmTitle">
+  <div class="modal-box host-box">
+    <div class="hm-badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <h3 id="nlmTitle">Na Lie!</h3>
+    <p>Everyone writes two truths and a lie about themselves. Then, one by one, each player takes the hot seat while the room votes on which statement is the lie.</p>
+    <div class="ai-grid" style="width:100%;text-align:left">
+      <label class="ai-f">Hot-seat turns<select id="nlRounds"><option value="0" selected>Everyone</option><option value="5">5 players</option><option value="8">8 players</option><option value="10">10 players</option><option value="15">15 players</option></select></label>
+      <label class="ai-f">Writing time<select id="nlWrite"><option value="60">60 seconds</option><option value="90" selected>90 seconds</option><option value="120">2 minutes</option></select></label>
+      <label class="ai-f wide">Voting time<select id="nlVote"><option value="15">15 seconds</option><option value="20" selected>20 seconds</option><option value="30">30 seconds</option></select></label>
+    </div>
+    <p class="hm-tip">With a big group, choose a number of turns so the game doesn't run too long. Everyone still votes every round.</p>
+    <div class="row"><button class="btn nl" id="nlGo">Open the game lobby</button><button class="btn line" id="nlCancel">Cancel</button></div>
+  </div>
+</div>
 <div class="modal" id="hostModal" hidden role="dialog" aria-modal="true" aria-labelledby="hmTitle">
   <div class="modal-box host-box">
     <div class="hm-badge" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
@@ -893,6 +1063,8 @@ const SFX = {
     f.type = "lowpass"; f.frequency.value = 420; g.gain.setValueAtTime(.0001, w); g.gain.exponentialRampToValueAtTime(.13, w + .25); g.gain.setValueAtTime(.13, w + dur - .4); g.gain.exponentialRampToValueAtTime(.0001, w + dur);
     o.connect(f); f.connect(g); g.connect(this.out); o.start(w); o.stop(w + dur + .05); },
   horn(at = 0) { [0, .3].forEach(t => { this.note(392, { at: at + t, dur: .24, type: "square", vol: .06 }); this.note(494, { at: at + t, dur: .24, type: "square", vol: .05 }); }); },
+  buzz() { this.note(150, { dur: .45, type: "sawtooth", vol: .09, to: 95 }); this.note(110, { dur: .45, type: "square", vol: .05, to: 80 }); this.hit({ dur: .2, vol: .1, hz: 900 }); },
+  ding() { this.note(1319, { dur: .5, type: "triangle", vol: .12 }); this.note(1976, { at: .02, dur: .4, type: "sine", vol: .05 }); },
   coin() { this.note(988, { dur: .08, type: "square", vol: .06 }); this.note(1319, { at: .07, dur: .25, type: "square", vol: .06 }); },
   whoosh() { if (!this.ctx) return; const c = this.ctx, w = c.currentTime, src = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain();
     src.buffer = this.noise; f.type = "bandpass"; f.Q.value = 2; f.frequency.setValueAtTime(400, w); f.frequency.exponentialRampToValueAtTime(4000, w + .35);
@@ -1597,7 +1769,7 @@ function send(conn, msg) { try { if (conn && conn.open) conn.send(msg); } catch 
 function live() { return [...H.players.values()].filter(p => p.connected); }
 function broadcast(msg) { for (const p of H.players.values()) if (p.connected) send(p.conn, typeof msg === "function" ? msg(p) : msg); }
 function ranked() { return [...H.players.values()].sort((a, b) => b.score - a.score); }
-function resetStats(p) { p.score = 0; p.streak = 0; p.rank = 0; p.last = null; p.prev = 0; p.correctN = 0; p.best = 0; }
+function resetStats(p) { p.score = 0; p.streak = 0; p.rank = 0; p.last = null; p.prev = 0; p.correctN = 0; p.best = 0; p.nlVotes = 0; p.fooledTotal = 0; }
 
 function startHost(quiz) {
   H.quiz = quiz; H.players.clear(); H.answers.clear(); H.qi = -1; H.phase = "lobby"; H.pin = ""; H.leader = null;
@@ -1682,7 +1854,7 @@ function onConn(conn) {
 }
 function dropConn(conn) {
   const p = conn._p;
-  if (p && p.conn === conn && p.connected) { p.connected = false; renderPlayers(); maybeAllAnswered(); }
+  if (p && p.conn === conn && p.connected) { p.connected = false; renderPlayers(); maybeAllAnswered(); nlCheckAll(); }
 }
 function hostMsg(conn, d) {
   if (!d || typeof d !== "object") return;
@@ -1713,6 +1885,8 @@ function hostMsg(conn, d) {
     if (pile.children.length < 12) pile.insertAdjacentHTML("beforeend", avEl(p.av));
     SFX.pop();
     maybeAllAnswered();
+  } else if (d.t === "nlSubmit") { nlOnSubmit(p, d);
+  } else if (d.t === "nlPick") { nlOnPick(p, d);
   } else if (d.t === "stakeSet") {
     if (H.phase !== "stake") return;
     const k = keyOf(p.name); if (H.stakes.has(k)) return;
@@ -1722,7 +1896,7 @@ function hostMsg(conn, d) {
     renderStakeCards(); SFX.coin();
     if (live().every(x => H.stakes.has(keyOf(x.name)))) { clearInterval(H.skT); setTimeout(endStake, 900); }
   } else if (d.t === "react") {
-    if (!REACTS.includes(d.e) || ["intro", "question"].includes(H.phase)) return;
+    if (!REACTS.includes(d.e) || ["intro", "question", "nlVote", "nlIntro"].includes(H.phase)) return;
     const now = Date.now(); if (p.lastReact && now - p.lastReact < 500) return; p.lastReact = now;
     flyReaction(p.av, d.e); SFX.pop();
     const card = document.querySelector(`.pcard[data-k="${CSS.escape(keyOf(p.name))}"]`);
@@ -1735,8 +1909,9 @@ function qMsg(answered) {
   const q = H.quiz.questions[H.qi];
   return { t: "q", qi: H.qi, total: H.quiz.questions.length, text: q.text, options: q.options, points: q.points, limit: H.limit, remaining: Math.max(0, H.limit - (Date.now() - H.qStart)), answered: !!answered };
 }
-function endMsg(p) { return { t: "end", rank: p.rank, of: H.players.size, score: p.score, correctN: p.correctN, total: H.quiz.questions.length, best: p.best, title: H.quiz.title, name: p.name, av: p.av }; }
+function endMsg(p) { return { t: "end", rank: p.rank, of: H.players.size, score: p.score, correctN: p.correctN, total: isNaLie() ? p.nlVotes : H.quiz.questions.length, best: p.best, title: H.quiz.title, name: p.name, av: p.av }; }
 function syncPlayer(p) {
+  if (H.phase.startsWith("nl")) return nlSync(p);
   if (H.phase === "stake") send(p.conn, stakeMsg(p));
   else if (H.phase === "intro") send(p.conn, introMsg());
   else if (H.phase === "question") send(p.conn, qMsg(H.answers.has(keyOf(p.name))));
@@ -1966,8 +2141,237 @@ function showRace() {
 $("#raceBoard").onclick = () => showBoard();
 $("#raceNext").onclick = () => nextQuestion();
 
+/* ================= NA LIE! (host) ================= */
+const isNaLie = () => !!(H.quiz && H.quiz.mode === "nalie");
+const NL = { subs: new Map(), order: [], ri: -1, votes: new Map(), stmts: [], lieIdx: 0, timer: null, tmo: null, end: 0, limit: 0, start: 0, key: "", leader: null, lastSec: -1 };
+const NL_COL = [0, 1, 3];
+function nlReset() { clearInterval(NL.timer); clearTimeout(NL.tmo); NL.subs = new Map(); NL.order = []; NL.ri = -1; NL.votes = new Map(); NL.key = ""; NL.leader = null; }
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+const nlFeatured = () => H.players.get(NL.key);
+const nlVoters = () => live().filter(p => keyOf(p.name) !== NL.key);
+function nlTile(i, text, extra = "") { const k = NL_COL[i]; return `<div class="nltile" data-i="${i}" style="--c:${COLORS[k]}">${shape(k)}<span class="t">${esc(text)}</span>${extra}</div>`; }
+
+function openNaLieSetup() { $("#nlModal").hidden = false; $("#nlGo").focus(); }
+function closeNaLieSetup() { $("#nlModal").hidden = true; }
+$("#nlBtn").onclick = openNaLieSetup;
+$("#goNaLie").onclick = openNaLieSetup;
+$("#nlCancel").onclick = closeNaLieSetup;
+$("#nlModal").addEventListener("click", e => { if (e.target.id === "nlModal") closeNaLieSetup(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#nlModal").hidden) closeNaLieSetup(); });
+$("#nlGo").onclick = () => {
+  if (typeof Peer === "undefined") { closeNaLieSetup(); renderEditor(); show("editor"); return showEdErr(["Couldn't load the game connection. Check your internet connection and refresh the page."]); }
+  closeNaLieSetup(); SFX.init();
+  startHost({ mode: "nalie", title: "Na Lie!", stake: false, questions: [], nl: { rounds: +$("#nlRounds").value, writeSecs: +$("#nlWrite").value, voteSecs: +$("#nlVote").value } });
+};
+
+function nlWriteMsg(p) { return NL.subs.has(keyOf(p.name)) ? { t: "nlLocked" } : { t: "nlWrite", remaining: Math.max(0, NL.end - Date.now()), limit: NL.limit }; }
+function nlStartWrite() {
+  nlReset(); H.phase = "nlWrite";
+  NL.limit = H.quiz.nl.writeSecs * 1000; NL.end = Date.now() + NL.limit;
+  renderNlWrite(); show("hNlWrite"); SFX.whoosh();
+  broadcast(p => nlWriteMsg(p));
+  const tk = () => { const rem = Math.max(0, Math.ceil((NL.end - Date.now()) / 1000)); $("#nwTime").textContent = rem; if (rem <= 0) { clearInterval(NL.timer); nlEndWrite(); } };
+  tk(); NL.timer = setInterval(tk, 250);
+}
+function renderNlWrite() {
+  const list = live();
+  $("#nwCount").textContent = [...NL.subs.keys()].filter(k => H.players.get(k)).length;
+  $("#nwCards").innerHTML = list.map(p => { const done = NL.subs.has(keyOf(p.name));
+    return `<div class="pcard ${done ? "locked" : ""}" style="animation:none">${avEl(p.av)}<span>${esc(p.name)}</span><span class="st">${done ? "Ready" : "Writing…"}</span></div>`; }).join("") || '<p class="empty">No players connected.</p>';
+  $("#nwStart").disabled = !(NL.subs.size >= 1 && list.length >= 2);
+}
+$("#nwStart").onclick = () => nlEndWrite();
+function nlOnSubmit(p, d) {
+  if (H.phase !== "nlWrite") return;
+  const k = keyOf(p.name); if (NL.subs.has(k)) return;
+  const clean = v => String(v || "").replace(/\s+/g, " ").trim().slice(0, 80);
+  const t = Array.isArray(d.truths) ? d.truths.map(clean) : [], lie = clean(d.lie);
+  if (t.length !== 2 || !t[0] || !t[1] || !lie || new Set([t[0].toLowerCase(), t[1].toLowerCase(), lie.toLowerCase()]).size < 3) return send(p.conn, { t: "nlBad" });
+  NL.subs.set(k, { truths: t, lie });
+  send(p.conn, { t: "nlLocked" }); SFX.coin(); renderNlWrite();
+  nlCheckAll();
+}
+function nlCheckAll() {
+  if (H.phase === "nlWrite") {
+    renderNlWrite();
+    const ps = live(); if (ps.length && ps.every(x => NL.subs.has(keyOf(x.name)))) { clearInterval(NL.timer); clearTimeout(NL.tmo); NL.tmo = setTimeout(nlEndWrite, 900); }
+  } else if (H.phase === "nlVote") {
+    const vs = nlVoters(); if (vs.length && vs.every(x => NL.votes.has(keyOf(x.name)))) { clearInterval(NL.timer); clearTimeout(NL.tmo); NL.tmo = setTimeout(nlReveal, 700); }
+  }
+}
+function nlEndWrite() {
+  if (H.phase !== "nlWrite") return;
+  clearInterval(NL.timer); clearTimeout(NL.tmo);
+  let order = shuffle([...NL.subs.keys()].filter(k => H.players.get(k)));
+  if (H.quiz.nl.rounds) order = order.slice(0, H.quiz.nl.rounds);
+  if (!order.length) {
+    H.phase = "lobby"; show("hLobby"); broadcast({ t: "lobby" });
+    $("#lbStatus").textContent = "Nobody finished their statements, so there was nothing to play. Press Start game to try again.";
+    return;
+  }
+  for (const p of live()) if (!NL.subs.has(keyOf(p.name))) send(p.conn, { t: "hold" });
+  NL.order = order; NL.ri = -1; SFX.stopLoop();
+  nlNextRound();
+}
+function nlNextRound() {
+  clearInterval(NL.timer); clearTimeout(NL.tmo);
+  NL.ri++;
+  if (NL.ri >= NL.order.length) return showPodium();
+  NL.key = NL.order[NL.ri];
+  const sub = NL.subs.get(NL.key), fp = nlFeatured();
+  const items = shuffle([{ t: sub.truths[0], lie: false }, { t: sub.truths[1], lie: false }, { t: sub.lie, lie: true }]);
+  NL.stmts = items.map(x => x.t); NL.lieIdx = items.findIndex(x => x.lie); NL.votes = new Map();
+  H.phase = "nlIntro";
+  $("#niNum").textContent = `Round ${NL.ri + 1} of ${NL.order.length}`;
+  $("#niAv").innerHTML = avEl(fp ? fp.av : randAv());
+  $("#niName").textContent = fp ? fp.name : "";
+  show("hNlIntro"); SFX.drumroll(1.6);
+  broadcast(p => ({ t: "nlIntro", round: NL.ri, total: NL.order.length, name: fp ? fp.name : "", you: keyOf(p.name) === NL.key }));
+  NL.tmo = setTimeout(nlOpenVote, 2600);
+}
+function nlVoteMsg(p) {
+  const fp = nlFeatured(), base = { round: NL.ri, total: NL.order.length, name: fp ? fp.name : "", av: fp ? fp.av : null };
+  if (keyOf(p.name) === NL.key) return { t: "nlHot", ...base };
+  return { t: "nlVote", ...base, statements: NL.stmts, remaining: Math.max(0, NL.end - Date.now()), limit: NL.limit, answered: NL.votes.has(keyOf(p.name)) };
+}
+function nlOpenVote() {
+  if (H.phase !== "nlIntro") return;
+  const fp = nlFeatured();
+  H.phase = "nlVote"; NL.limit = H.quiz.nl.voteSecs * 1000; NL.start = Date.now(); NL.end = NL.start + NL.limit; NL.lastSec = -1;
+  $("#nvNum").textContent = `Round ${NL.ri + 1} of ${NL.order.length}`;
+  $("#nvAv").innerHTML = avatarSVG(fp ? fp.av : randAv());
+  $("#nvTitle").textContent = `Which one is ${fp ? fp.name : "their"}'s lie?`;
+  $("#nvCount").textContent = "0"; $("#nvTotal").textContent = nlVoters().length; $("#nvPile").innerHTML = "";
+  $("#nvRing").classList.remove("hurry");
+  $("#nvTiles").innerHTML = NL.stmts.map((t, i) => nlTile(i, t)).join("");
+  show("hNlVote"); SFX.startLoop("question");
+  broadcast(p => nlVoteMsg(p));
+  const tk = () => {
+    const rem = NL.end - Date.now(), sec = Math.max(0, Math.ceil(rem / 1000));
+    $("#nvTime").textContent = sec; $("#nvRingFg").style.strokeDashoffset = RING * (1 - Math.max(0, rem) / NL.limit);
+    if (sec !== NL.lastSec) { NL.lastSec = sec; if (sec <= 5 && sec > 0) { $("#nvRing").classList.add("hurry"); SFX.tick(); } }
+    if (rem <= 0) { clearInterval(NL.timer); nlReveal(); }
+  };
+  tk(); NL.timer = setInterval(tk, 200);
+}
+$("#nvEnd").onclick = () => { clearInterval(NL.timer); nlReveal(); };
+$("#nvSkip").onclick = () => { if (!confirm("Skip this player's statements? Nobody scores this round.")) return; SFX.stopLoop(); broadcast({ t: "hold" }); nlNextRound(); };
+function nlOnPick(p, d) {
+  if (H.phase !== "nlVote" || d.round !== NL.ri) return;
+  const k = keyOf(p.name); if (k === NL.key || NL.votes.has(k)) return;
+  const c = +d.choice; if (!(Number.isInteger(c) && c >= 0 && c < 3)) return;
+  NL.votes.set(k, { choice: c, ms: Date.now() - NL.start });
+  send(p.conn, { t: "locked", choice: NL_COL[c] });
+  $("#nvCount").textContent = NL.votes.size;
+  const pile = $("#nvPile"); if (pile.children.length < 12) pile.insertAdjacentHTML("beforeend", avEl(p.av));
+  SFX.pop(); nlCheckAll();
+}
+function nlReveal() {
+  if (H.phase !== "nlVote") return;
+  clearInterval(NL.timer); clearTimeout(NL.tmo);
+  H.phase = "nlReveal"; SFX.stopLoop();
+  const fp = nlFeatured(), counts = [0, 0, 0], pickers = [[], [], []];
+  let voters = 0, fooled = 0;
+  for (const [k, p] of H.players) {
+    p.prev = p.score;
+    if (k === NL.key) continue;
+    const v = NL.votes.get(k);
+    p.last = { answered: !!v, correct: false, pts: 0 };
+    if (!v && !p.connected) continue;
+    p.nlVotes++;
+    if (v) { voters++; counts[v.choice]++; pickers[v.choice].push(p); }
+    if (v && v.choice === NL.lieIdx) {
+      p.last.correct = true; p.correctN++; p.streak++; p.best = Math.max(p.best, p.streak);
+      p.last.pts = 500 + Math.round(500 * (1 - Math.min(v.ms, NL.limit) / NL.limit)); p.score += p.last.pts;
+    } else { if (v) fooled++; p.last.lost = p.streak >= 2; p.streak = 0; }
+  }
+  if (fp) { const pts = fooled * 150; fp.last = { hot: true, fooled, pts, answered: true, correct: fooled > 0 }; fp.score += pts; fp.fooledTotal += fooled; }
+  const r = ranked(); r.forEach((p, i) => p.rank = i + 1);
+  const lie = NL.stmts[NL.lieIdx];
+  r.forEach((p, i) => {
+    if (!p.connected || !p.last) return;
+    const ahead = i > 0 ? { name: r[i - 1].name, gap: r[i - 1].score - p.score } : null;
+    if (keyOf(p.name) === NL.key) send(p.conn, { t: "res", nl: "hot", ...p.last, score: p.score, rank: p.rank, of: r.length, ahead });
+    else send(p.conn, { t: "res", nl: "voter", ...p.last, score: p.score, rank: p.rank, of: r.length, streak: p.streak, correctText: lie, ahead });
+  });
+  $("#nrNum").textContent = `Round ${NL.ri + 1} of ${NL.order.length}`;
+  $("#nrWho").textContent = fp ? `${fp.name}'s statements` : "";
+  const spotted = counts[NL.lieIdx];
+  $("#nrCall").textContent = !voters ? "Nobody voted this round" : spotted === voters ? "Everyone spotted the lie!" : fooled >= Math.ceil(voters / 2) && fp ? `${fp.name} fooled ${plural(fooled, "person").replace("persons", "people")}!` : `${spotted} of ${voters} spotted the lie`;
+  const tiles = $("#nrTiles"); tiles.classList.remove("revealed");
+  tiles.innerHTML = NL.stmts.map((t, i) => nlTile(i, t,
+    `<span class="votes"><span class="pile">${pickers[i].slice(0, 8).map(p => avEl(p.av)).join("")}</span><b>${counts[i]}</b></span><span class="okmark">✓ True</span><span class="stamp" aria-hidden="true">NA LIE!</span>`)).join("");
+  tiles.querySelectorAll(".nltile").forEach((el, i) => el.classList.add(i === NL.lieIdx ? "lie" : "truth"));
+  show("hNlReveal"); SFX.gong();
+  clearTimeout(NL.tmo); NL.tmo = setTimeout(() => { if (H.phase === "nlReveal") { tiles.classList.add("revealed"); SFX.buzz(); } }, 1300);
+  $("#nrNext").textContent = "Leaderboard";
+}
+$("#nrNext").onclick = () => nlShowBoard();
+function nlShowBoard() {
+  H.phase = "nlBoard";
+  const last = NL.ri >= NL.order.length - 1, r = ranked(), fp = nlFeatured();
+  const prevRank = new Map([...H.players.values()].sort((a, b) => b.prev - a.prev).map((p, i) => [keyOf(p.name), i + 1]));
+  const top = r.slice(0, 5), before = [...top].sort((a, b) => b.prev - a.prev);
+  $("#nbMeta").textContent = `Na Lie! · Round ${NL.ri + 1} of ${NL.order.length}`;
+  $("#nbNext").textContent = last ? "See the winners" : "Next round";
+  const lead = r[0], lk = lead ? keyOf(lead.name) : null;
+  let call = "";
+  if (lead && lead.score > 0 && NL.leader && NL.leader !== lk) call = `${lead.name} jumps to 1st!`;
+  else if (fp && fp.last && fp.last.fooled >= 2) call = `${fp.name} fooled ${fp.last.fooled} people!`;
+  else if (r[1] && lead.score - r[1].score < 200 && lead.score > 0) call = "Neck and neck at the top!";
+  else if (lead && lead.score > 0) call = `${lead.name} is holding on to first`;
+  else call = "Still all to play for";
+  if (lead && lead.score > 0) NL.leader = lk;
+  const callAv = call.startsWith(fp ? fp.name : "\u0000") && fp ? fp.av : lead ? lead.av : null;
+  $("#nbCall").innerHTML = (callAv ? avEl(callAv) : "") + esc(call);
+  $("#nbCall").style.animation = "none"; void $("#nbCall").offsetWidth; $("#nbCall").style.animation = "";
+  const crown = '<span class="nlb-crown"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span>';
+  const row = (p, rank, score, isLead) => {
+    const k = keyOf(p.name), moved = (prevRank.get(k) || rank) - rank, chips = [];
+    if (moved > 0) chips.push(`<span class="nlb-chip up">▲ ${moved}</span>`); else if (moved < 0) chips.push(`<span class="nlb-chip down">▼ ${-moved}</span>`);
+    if (k === NL.key && p.last && p.last.fooled > 0) chips.push(`<span class="nlb-chip fool">Fooled ${p.last.fooled}</span>`);
+    if (p.streak >= 2) chips.push(`<span class="nlb-chip fire">🔥 ${p.streak}</span>`);
+    const g = p.last && p.last.pts > 0 ? `<span class="gain">+${p.last.pts.toLocaleString()}</span>` : "";
+    return `<div class="nlb-row ${isLead ? "lead" : ""}" data-k="${esc(k)}"><span class="rk">${rank}</span><span class="av">${avEl(p.av)}${isLead ? crown : ""}</span><span class="nm">${esc(p.name)}</span><span class="chips">${chips.join("")}</span><span class="sp"></span>${g}<span class="sc">${score.toLocaleString()}</span></div>`;
+  };
+  const rows = $("#nbRows");
+  rows.innerHTML = top.length ? before.map((p, i) => row(p, i + 1, p.prev, false)).join("") : '<p class="empty">No players yet.</p>';
+  const rest = r.slice(5);
+  $("#nbMore").innerHTML = rest.length ? `<span class="stack">${rest.slice(0, 4).map(p => avEl(p.av)).join("")}</span>+ ${plural(rest.length, "more player")}` : "";
+  show("hNlBoard"); SFX.drumroll(1);
+  r.forEach((p, i) => { if (!p.connected) return; const ahead = i > 0 ? { name: r[i - 1].name, gap: r[i - 1].score - p.score } : null; send(p.conn, { t: "nlRank", rank: i + 1, of: r.length, ahead, moved: (prevRank.get(keyOf(p.name)) || i + 1) - (i + 1), score: p.score }); });
+  clearTimeout(NL.tmo);
+  NL.tmo = setTimeout(() => {
+    if (H.phase !== "nlBoard" || !top.length) return;
+    const els = new Map([...rows.children].map(el => [el.dataset.k, el]));
+    const first = new Map([...els].map(([k, el]) => [k, el.getBoundingClientRect().top]));
+    top.forEach((p, i) => {
+      const k = keyOf(p.name), old = els.get(k); if (!old) return;
+      const tmp = document.createElement("div"); tmp.innerHTML = row(p, i + 1, p.prev, i === 0 && p.score > 0); const el = tmp.firstElementChild;
+      rows.replaceChild(el, old); els.set(k, el);
+    });
+    top.forEach(p => rows.appendChild(els.get(keyOf(p.name))));
+    top.forEach(p => {
+      const k = keyOf(p.name), el = els.get(k), dy = first.get(k) - el.getBoundingClientRect().top;
+      el.style.transition = "none"; el.style.transform = `translateY(${dy}px)`; void el.offsetWidth;
+      el.style.transition = "transform .75s cubic-bezier(.2,.9,.2,1)"; el.style.transform = "";
+      countUp(el.querySelector(".sc"), p.prev, p.score, 900);
+    });
+    setTimeout(() => SFX.ding(), 800);
+  }, 1000);
+}
+$("#nbNext").onclick = () => nlNextRound();
+$("#nbEnd").onclick = () => { if (confirm("End the game now and show the winners?")) { clearTimeout(NL.tmo); showPodium(); } };
+function nlSync(p) {
+  const k = keyOf(p.name);
+  if (H.phase === "nlWrite") send(p.conn, nlWriteMsg(p));
+  else if (H.phase === "nlVote") send(p.conn, nlVoteMsg(p));
+  else if (H.phase === "nlIntro") { const fp = nlFeatured(); send(p.conn, { t: "nlIntro", round: NL.ri, total: NL.order.length, name: fp ? fp.name : "", you: k === NL.key }); }
+  else send(p.conn, { t: "hold" });
+}
+
 function showPodium() {
-  H.phase = "podium"; SFX.stopLoop();
+  H.phase = "podium"; SFX.stopLoop(); clearInterval(NL.timer); clearTimeout(NL.tmo);
   const r = ranked(); r.forEach((p, i) => p.rank = i + 1);
   $("#pdTitle").textContent = H.quiz.title;
   const order = [1, 0, 2];
@@ -1990,22 +2394,22 @@ function showPodium() {
 $("#againBtn").onclick = () => {
   H.podT.forEach(clearTimeout); stopConfetti();
   for (const [k, p] of H.players) { if (!p.connected) { H.players.delete(k); cardSeen.delete(k); } else resetStats(p); }
-  H.qi = -1; H.phase = "lobby"; H.answers.clear(); H.stakes.clear(); H.leader = null; H.callQi = -1;
+  H.qi = -1; H.phase = "lobby"; H.answers.clear(); H.stakes.clear(); H.leader = null; H.callQi = -1; nlReset();
   broadcast({ t: "lobby" });
   renderPlayers(); show("hLobby"); SFX.startLoop("lobby");
 };
 function closeHost() {
   broadcast({ t: "closed" });
-  clearInterval(H.timer); clearTimeout(H.introT); clearTimeout(H.openT); clearInterval(H.skT); clearTimeout(H.raceT); H.podT.forEach(clearTimeout); stopConfetti(); SFX.stopLoop();
+  clearInterval(H.timer); clearTimeout(H.introT); clearTimeout(H.openT); clearInterval(H.skT); nlReset(); clearTimeout(H.raceT); H.podT.forEach(clearTimeout); stopConfetti(); SFX.stopLoop();
   const peer = H.peer; H.peer = null; H.phase = "idle"; H.players.clear(); cardSeen.clear();
   setTimeout(() => { try { peer && peer.destroy(); } catch (e) {} }, 400);
   renderEditor(); show("editor");
 }
 $("#doneBtn").onclick = closeHost;
 $("#lbEnd").onclick = () => { if (!live().length || confirm("End this game? Everyone in the lobby will be sent out.")) closeHost(); };
-$("#startBtn").onclick = () => nextQuestion();
+$("#startBtn").onclick = () => { if (isNaLie()) nlStartWrite(); else nextQuestion(); };
 window.addEventListener("beforeunload", e => {
-  if (H.peer && ["intro", "question", "reveal", "board", "race", "stake"].includes(H.phase)) { e.preventDefault(); e.returnValue = ""; }
+  if (H.peer && ["intro", "question", "reveal", "board", "race", "stake", "nlWrite", "nlIntro", "nlVote", "nlReveal", "nlBoard"].includes(H.phase)) { e.preventDefault(); e.returnValue = ""; }
 });
 
 /* ---------- WhatsApp share cards ---------- */
@@ -2222,6 +2626,23 @@ function pMsg(d) {
       $("#pwTitle").textContent = d.amt ? `Stake locked: ${d.amt.toLocaleString()}` : (d.auto ? "No stake placed" : "Playing it safe");
       $("#pwText").textContent = d.amt ? `${d.pct === 100 ? "All in! " : ""}Get it right to win ${d.amt.toLocaleString()}, or lose it if you're wrong.` : "Nothing to lose on this one. Get ready for the question.";
       show("pWait"); break;
+    case "nlWrite": renderPNlWrite(d); break;
+    case "nlBad": $("#nwGo").disabled = false; $("#nwErr").textContent = "Fill in all three, and make each one different."; $("#nwErr").hidden = false; show("pNlWrite"); break;
+    case "nlLocked":
+      clearInterval(P.timer);
+      $("#pwTitle").textContent = "Locked in!"; $("#pwText").textContent = "Wait for everyone to finish. Your turn in the hot seat is coming.";
+      show("pWait"); break;
+    case "nlIntro": {
+      clearInterval(P.timer); clearInterval(P.readyT);
+      $("#prNum").textContent = d.you ? "You're up next!" : `Round ${d.round + 1} of ${d.total}: ${d.name} is in the hot seat`;
+      $("#prDbl").hidden = true; $("#prStake").hidden = true;
+      let n = 3; const el = $("#prCount"); el.textContent = n;
+      P.readyT = setInterval(() => { n--; if (n <= 0) return clearInterval(P.readyT); el.textContent = n; }, 850);
+      show("pReady"); break;
+    }
+    case "nlHot": clearInterval(P.timer); clearInterval(P.readyT); $("#nhAv").innerHTML = avatarSVG(P.av); show("pNlHot"); if (navigator.vibrate) try { navigator.vibrate([60, 60, 60]); } catch (e) {} break;
+    case "nlVote": renderPNlVote(d); break;
+    case "nlRank": renderPNlRank(d); break;
     case "q": renderPAnswer(d); break;
     case "locked": showLocked(d.choice); break;
     case "res": renderPRes(d); break;
@@ -2278,17 +2699,62 @@ function showLocked(k) {
   else if (!s.innerHTML) s.hidden = true;
   show("pLocked");
 }
+function renderPNlWrite(d) {
+  clearInterval(P.timer); clearInterval(P.readyT);
+  ["#nwT1", "#nwT2", "#nwL"].forEach(s => { $(s).value = ""; }); $("#nwErr").hidden = true; $("#nwGo").disabled = false;
+  const end = Date.now() + (d.remaining || 90000), lim = d.limit || 90000, bar = $("#nwBar");
+  const step = () => { const rem = end - Date.now(); bar.style.transform = `scaleX(${Math.max(0, rem / lim)})`; bar.style.background = rem < 15000 ? "var(--bad)" : ""; if (rem <= 0) clearInterval(P.timer); };
+  step(); P.timer = setInterval(step, 200);
+  show("pNlWrite");
+}
+$("#nwGo").onclick = () => {
+  const t1 = $("#nwT1").value.trim(), t2 = $("#nwT2").value.trim(), l = $("#nwL").value.trim(), e = $("#nwErr");
+  if (!t1 || !t2 || !l) { e.textContent = "Fill in all three before locking in."; e.hidden = false; return; }
+  if (new Set([t1.toLowerCase(), t2.toLowerCase(), l.toLowerCase()]).size < 3) { e.textContent = "Make each statement different."; e.hidden = false; return; }
+  e.hidden = true; $("#nwGo").disabled = true;
+  send(P.conn, { t: "nlSubmit", truths: [t1, t2], lie: l }); SFX.coin();
+};
+function renderPNlVote(d) {
+  clearInterval(P.timer); clearInterval(P.readyT); P.nlRound = d.round;
+  if (d.answered) return showLocked(-1);
+  $("#nvpAv").innerHTML = avatarSVG(d.av); $("#nvpTitle").textContent = `Which one is ${d.name}'s lie?`;
+  const cols = [0, 1, 3];
+  $("#nvpList").innerHTML = d.statements.map((t, i) => `<button class="nlbtn" data-i="${i}" style="--c:${COLORS[cols[i]]};animation-delay:${i * 60}ms">${shape(cols[i])}<span>${esc(t)}</span></button>`).join("");
+  const end = Date.now() + d.remaining, bar = $("#nvBar");
+  const step = () => { const rem = end - Date.now(); bar.style.transform = `scaleX(${Math.max(0, rem / d.limit)})`; bar.style.background = rem < 5000 ? "var(--bad)" : ""; if (rem <= 0) clearInterval(P.timer); };
+  step(); P.timer = setInterval(step, 100);
+  show("pNlVote");
+}
+$("#nvpList").addEventListener("click", e => {
+  const b = e.target.closest(".nlbtn"); if (!b || !P.conn) return;
+  document.querySelectorAll("#nvpList .nlbtn").forEach(x => x.disabled = true);
+  send(P.conn, { t: "nlPick", round: P.nlRound, choice: +b.dataset.i });
+  if (navigator.vibrate) try { navigator.vibrate(30); } catch (e) {}
+  SFX.lock(); showLocked([0, 1, 3][+b.dataset.i]);
+});
+function renderPNlRank(d) {
+  clearInterval(P.timer); setScore(d.score);
+  $("#nrkAv").innerHTML = avatarSVG(P.av); $("#nrkBig").textContent = ord(d.rank);
+  $("#nrkText").textContent = d.rank === 1 ? (d.of > 1 ? "You're in the lead! Keep it up." : "You're in 1st place.") : d.ahead ? `${d.ahead.gap.toLocaleString()} points behind ${d.ahead.name}. You can catch up!` : `Out of ${plural(d.of, "player")}`;
+  const pill = $("#nrkPill");
+  if (d.moved > 0) { pill.textContent = `▲ ${plural(d.moved, "place")}`; pill.style.cssText = "background:rgba(61,220,151,.16);color:#3DDC97"; }
+  else if (d.moved < 0) { pill.textContent = `▼ ${plural(-d.moved, "place")}`; pill.style.cssText = "background:rgba(255,122,128,.16);color:#FF7A80"; }
+  else { pill.textContent = "Holding steady"; pill.style.cssText = "background:rgba(255,255,255,.1);color:var(--text)"; }
+  show("pNlRank");
+}
 function renderPRes(d) {
   clearInterval(P.timer);
   const sec = $("#pRes");
   sec.className = "screen player center " + (d.correct ? "ok" : "bad");
   $("#prVerdict").textContent = d.correct ? "✓" : "✕";
-  $("#prTitle").textContent = d.correct ? "Correct!" : d.answered ? "Not this time" : "Time's up";
+  $("#prTitle").textContent = d.nl === "hot" ? (d.fooled ? `You fooled ${d.fooled === 1 ? "1 person" : d.fooled + " people"}!` : "Nobody fell for it")
+    : d.nl === "voter" ? (d.correct ? "You spotted it!" : d.answered ? "Fooled you!" : "Time's up")
+    : d.correct ? "Correct!" : d.answered ? "Not this time" : "Time's up";
   const pts = $("#prPts"), sign = d.pts < 0 ? "−" : "+", mag = Math.abs(d.pts || 0);
   if (mag) { const t0 = performance.now(); (function f(t) { const k = Math.min(1, (t - t0) / 700); pts.textContent = sign + Math.round(mag * (1 - (1 - k) ** 3)).toLocaleString(); if (k < 1) requestAnimationFrame(f); })(t0); } else pts.textContent = "+0";
   $("#prStreak").textContent = d.isStake && d.stake ? (d.correct ? `Stake won: +${d.stake.toLocaleString()}` : `Stake lost: −${d.stake.toLocaleString()}`)
     : d.correct && d.streak > 1 ? `🔥 Answer streak ${d.streak}` : (d.lost ? "Streak lost" : "");
-  $("#prAns").textContent = d.correct ? "" : `The answer was “${d.correctText}”`;
+  $("#prAns").textContent = d.nl === "hot" ? (d.fooled ? "Great poker face." : "They saw right through you.") : d.nl === "voter" ? (d.correct ? "" : `The lie was “${d.correctText}”`) : d.correct ? "" : `The answer was “${d.correctText}”`;
   $("#prRank").textContent = d.rank === 1 ? (d.of > 1 ? "You're in the lead! 👑" : "You're in 1st place") : (d.ahead ? `${ord(d.rank)} place, ${d.ahead.gap.toLocaleString()} behind ${d.ahead.name}` : `You're ${ord(d.rank)} of ${d.of}`);
   setScore(d.score);
   show("pRes");
@@ -2315,6 +2781,7 @@ if (pinParam) {
 } else {
   const qp = new URLSearchParams(location.search);
   if (qp.has("host")) enterEditor();
+  else if (qp.has("nalie")) { show("home"); openNaLieSetup(); }
   else if (qp.has("join")) { show("pJoin"); $("#jPin").focus(); }
   else show("home");
 }
